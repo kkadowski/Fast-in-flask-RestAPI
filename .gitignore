@@ -1,0 +1,5 @@
+# ignore all logs
+*.log
+.venv/
+projekt_flask.txt
+mov.txt
