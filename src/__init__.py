@@ -1,4 +1,5 @@
 from flask import Flask, jsonify
+import os
 
 def create_app(test_config=None):
     app = Flask(__name__, 
@@ -7,16 +8,16 @@ def create_app(test_config=None):
       
     if test_config is None:
         app.config.from_mapping(
-            SECRET_KEY = "dev",
+            SECRET_KEY = os.environ.get("SECRET_KEY"),
         ) 
     else:
         app.config.from_mapping(test_config)
     
-    @app.get("/")
+    @app.route("/")
     def index():
         return jsonify({"message": "Welcome to RestAPI"})
 
-    @app.get("/hello")
+    @app.route("/hello")
     def hello():
         return jsonify({"message": "Hello - testing route..."})
     
