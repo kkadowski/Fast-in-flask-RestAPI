@@ -43,13 +43,13 @@ def create_app(test_config=None):
     
     Swagger(app, config = swagger_config, template = template)
     
-    @app.route("/")
-    def index():
-        return jsonify({"message": "Welcome to RestAPI"})
+    # @app.route("/")
+    # def index():
+    #     return jsonify({"message": "Welcome to RestAPI"})
 
-    @app.route("/hello")
-    def hello():
-        return jsonify({"message": "Hello - testing route..."})
+    # @app.route("/hello")
+    # def hello():
+    #     return jsonify({"message": "Hello - testing route..."})
     
     @app.get('/<short_url>')
     @swag_from('./docs/short_url.yaml')
